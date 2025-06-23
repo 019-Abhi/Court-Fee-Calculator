@@ -14,13 +14,13 @@ export default function HomeScreen() {
 
     <View style = {styles.OuterBox}>
  
-      <View style = {styles.SelectorBox}>
+      <View style = {styles.SelectorBox}> 
 
-        <Pressable style={[styles.InterestCalculatorButton, styles.CalculatorButton]} onPress = {() => router.push("/(tabs)/interestcalculator")}>
+        <Pressable style={styles.InterestCalculatorButton} onPress = {() => router.push("/(tabs)/interestcalculator")}>
           <Text style={styles.ButtonText}>Interest Calculator</Text>
         </Pressable>
 
-        <Pressable style={[styles.CourtFeeCalculatorButton, styles.CalculatorButton]}>
+        <Pressable style={styles.CourtFeeCalculatorButton}>
           <Text style={styles.ButtonText}>Court Fee Calculator</Text>
         </Pressable>
 
@@ -53,13 +53,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 44,
     paddingVertical: 132,
-    paddingHorizontal: 44,
+    paddingHorizontal: 54,
     width: "90%",
     maxWidth: 400, 
     
   },
 
-  CalculatorButton: {
+
+  InterestCalculatorButton:{
 
     width: "100%",
     paddingVertical: 16,
@@ -67,16 +68,21 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(171, 183, 189)",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 26,
-    
-  },
-
-  InterestCalculatorButton:{
-
-
+    marginBottom: 13,
 
   },
 
+  CourtFeeCalculatorButton:{
+
+    width: "100%",
+    paddingVertical: 16,
+    borderRadius: 22,
+    backgroundColor: "rgb(171, 183, 189)",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 13,
+
+  },
 
   ButtonText: {
 
