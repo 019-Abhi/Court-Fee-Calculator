@@ -11,6 +11,7 @@ export default function HomeScreen() {
   const [FromDate, setFromDate] = useState("");
   const [ToDate, setToDate] = useState("");
   const [Result, setResult] = useState('');
+  const [Amount, setAmount] = useState('');
 
   if (!fontsLoaded) return null;
 
@@ -57,10 +58,16 @@ export default function HomeScreen() {
   const CalculateInterest = () => {
 
     let TotalDays = differenceInDays(parseDate(ToDate), parseDate(FromDate));
-    // setResult(TotalDays);
-    let RateDecimal = Rate/100;
-    let Interest = (Principal * RateDecimal * TotalDays) / 365;
+
+    const principalValue = parseFloat(Principal);
+    const rateValue = parseFloat(Rate);
+    let RateDecimal = rateValue/100;
+
+    let Interest = (principalValue * RateDecimal * TotalDays) / 365;
     setResult(Interest.toFixed(2));
+
+    const draftAmount = Interest + Number(Principal); 
+    setAmount(draftAmount.toFixed(2));           
 
   }
 
@@ -114,7 +121,10 @@ export default function HomeScreen() {
           </Pressable>
 
           {Result != '' && (
-            <Text style = {styles.ResultText}> {Result} </Text>
+            <View style = {styles.ResultBox}>
+              <Text style = {styles.ResultText}> Interest: {Result} </Text>
+              <Text style = {styles.ResultText}>  Total Amount: {Amount}  </Text>
+            </View>
           )}
 
           <Pressable style={styles.CalculateButton} onPress = {CalculateInterest}>
@@ -254,7 +264,7 @@ const styles = StyleSheet.create({
     color: "black", 
     textAlign: "center",
   
-  },
+  },  
 
   DateToBox: {
   
@@ -306,12 +316,12 @@ const styles = StyleSheet.create({
 
   ResultText: {
 
-    fontSize: 17,
+    fontSize: 20,
     fontFamily: "Poppins_500Medium",
     color: "black",
     textAlign: "center",   
 
-  },
+  }, 
 
   ExitBox: {
 
@@ -336,7 +346,13 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     textAlign: "center",
 
+  },
+
+  ResultBox: {
+
+    marginBottom: 6,
+
   }
 
 });
-  
+  //aaaaaaaaaaaaaaaaaa

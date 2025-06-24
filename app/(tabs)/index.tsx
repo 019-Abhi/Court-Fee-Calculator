@@ -20,7 +20,7 @@ export default function HomeScreen() {
           <Text style={styles.ButtonText}>Interest Calculator</Text>
         </Pressable>
 
-        <Pressable style={styles.CourtFeeCalculatorButton}>
+        <Pressable style={styles.CourtFeeCalculatorButton} onPress = {() => router.push('/(tabs)/courtfeecalculator')}>
           <Text style={styles.ButtonText}>Court Fee Calculator</Text>
         </Pressable>
 
